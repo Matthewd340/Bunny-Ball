@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (gameOver == true)
+        {
+            GameOver();
+        }
        //is the game over?
     }
 
