@@ -7,9 +7,19 @@ public class GameManager : MonoBehaviour
     public bool gameOver;
     public GameObject winnerUI;
     public GameObject player;
+    //switch levels code
+    public GameObject levelOne;
+    public GameObject levelTwo;
+    public int currentLevel = 1;
 
     private void Update()
     {
+        if (currentLevel == 2)
+        {
+            levelOne.SetActive(false);
+            levelTwo.SetActive(true);
+        }
+        
         if (gameOver == true)
         {
             GameOver();
@@ -17,7 +27,8 @@ public class GameManager : MonoBehaviour
        //is the game over?
     }
 
-    void GameOver() {
+    public void GameOver() 
+    {
         player.GetComponent<Player>().enabled = false;
         Destroy(player.GetComponent<Rigidbody>());
         winnerUI.SetActive(true);
